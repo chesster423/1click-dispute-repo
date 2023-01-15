@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1ClickDispute</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body ng-app="dispute-aid-app" class="pop-up-container">
+    
+    <div ng-controller="AuthController">
+        <img src="../img/ajax-loader-bar.gif" class="pop-up-loader" ng-show="is_loading == true">
+
+        <div class="container h-100 loginPage" ng-if="!is_logged_in">
+            <div class="d-flex justify-content-center h-100">
+                <div class="user_card">
+
+                    <div class="d-flex justify-content-center">
+                        <div class="brand_logo_container">
+                            <center>
+                                <img src="../img/logo_title.png" alt="Logo" class="brand_logo img-responsive mb-1">
+                                <div class="alert alert-default mb-2" ng-if="!callback.msg && !reset_password && !signup">Welcome, please sign in</div>
+                                <div class="alert alert-default mb-2" ng-if="!callback.msg && reset_password">Reset your password</div>
+                                <div class="alert alert-default mb-2" ng-if="!callback.msg && signup">
+                                    <label style="line-height: 1" class="text-muted">Please fill in this form to create an account</label>                                
+                                </div>
+                                <div class="alert mb-2" ng-class="(callback.success) ? 'alert-success' : 'alert-danger'" ng-show="callback.msg" ng-bind-html="callback.msg"></div>
+                            </center>
+                        </div>
+                    </div>
+
+                    <div class="login-container" ng-init="reset_password = false; signup = false" ng-show="!reset_password && !signup">
+                        <div class="d-flex justify-content-center form_container">
+                            <form>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" value="" name="" placeholder="Email" class="form-control" ng-model="auth.login.email">
+                                </div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-append">
+                                            <span class="input-group-text">
+                                              <i class="fa fa-key" style="width: 12px"></i>
+                                            </span>
+                                    </div>
+                                    <input type="password" value="" name="" placeholder="Password" class="form-control" ng-model="auth.login.password">
+                                </div>
+
+                                <button type="button" name="button" class="btn col-sm-12 mb-3" ng-click="login()" ng-disabled="is_loading">Login</button>
+                                <br>
+                                <a href="#" ng-click="signup = true; callback.msg = null">Sign up</a>
+                                <a href="#" ng-click="reset_password = true; callback.msg = null" class="pull-right">Forgot password?</a>   
+                            </form>
+                        </div>                         
+                    </div>
+
+                    <div class="signup-container" ng-show="signup == true">
+                        <div class="d-flex justify-content-center form_container">
+                            <form>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" value="" name="" placeholder="Your name" class="form-control" ng-model="auth.register.name">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" id="email" placeholder="Enter email" class="form-control" ng-model="auth.register.email">
+                                </div> 
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                          <i class="fa fa-key" style="width: 12px"></i>
+                                        </span>
+                                    </div>
+                                    <input type="password" value="" name="" placeholder="Password" class="form-control" ng-model="auth.register.password">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                          <i class="fa fa-check" style="width: 12px"></i>
+                                        </span>
+                                    </div>
+                                    <input type="password" value="" name="" placeholder="Confirm password" class="form-control" ng-model="auth.register.confirmPassword">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fa fa-ticket"></i></span>
+                                    </div>
+                                    <input type="text" id="coupon" placeholder="Coupon Code" class="form-control" ng-model="auth.register.couponCode">
+                                </div> 
+
+                                <button type="button" name="button" class="btn btn-primary col-sm-4 mb-3" 
+                                ng-click="register(); callback.msg = null" 
+                                ng-disabled="is_loading">Sign Up</button>  
+
+                                <label class="text-center">Already a member? <a href="#" ng-click="signup = false; callback.msg = null" >Log in</a> </label>            
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="reset-password-container" ng-show="reset_password == true">
+                        <div class="d-flex justify-content-center form_container">
+                            <form>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="email" id="reset-password-email" placeholder="Enter email" class="form-control" ng-model="auth.reset.email">
+                                </div> 
+
+                                <button type="button" name="button" class="btn btn-default col-sm-12 mb-2" ng-click="resetPassword()" ng-disabled="is_loading">Reset Password</button>   
+                                <button type="button" name="button" class="btn btn-danger col-sm-12" ng-click="reset_password = false; callback.msg = null" ng-disabled="is_loading">Cancel</button>                  
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-3">
+                        <div id="response"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container h-100 logged-in-page" ng-if="is_logged_in">
+
+        </div>
+    </div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+<<<<<<< HEAD
+
+    <script src="../js/app.js"></script>
+    <script src="../js/c2m.js"></script>
+    <script src="../js/lob.js"></script>
+    <script src="../js/auto-selector.js"></script>    
+    <script src="popup.js"></script>
+=======
+    <script src="js/LS.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/app_modules/Auth.js"></script>
+    <script src="../js/app_modules/User.js"></script>
+    <script src="../js/app_modules/Purchase.js"></script>
+    <script src="../js/app_modules/Credit.js"></script>
+>>>>>>> 45dc6c79a08f2af34e1af0db22782abf9deddf7f
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+.card-js input.card-number {
+  padding-right: 48px;
+}
+
+.card-js .card-number-wrapper .icon{
+  top: 14px;
+}
+
+.card-js .card-number-wrapper .card-type-icon.show{
+  top: 17px;
+}

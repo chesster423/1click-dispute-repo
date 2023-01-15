@@ -1,0 +1,19 @@
+body {
+	background: #e6fcff;
+}
+
+input.ng-invalid.ng-dirty {
+  background-color: #FA787E;
+}
+
+input.ng-valid.ng-dirty {
+  background-color: #78FA89;
+}
+
+ul {
+ margin:0;
+}
+
+a.active {
+  text-decoration: underline;
+}

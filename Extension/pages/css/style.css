@@ -1,0 +1,68 @@
+.sidebar-item.coupon-code {
+	background-color: #f1f1f1 !important;
+}
+
+
+.sidebar-item.coupon-code a:hover{
+	color:  #54667a !important;
+	text-decoration: none;
+	background-color: #e5e3e3;
+}
+
+.sidebar-item.coupon-code a i.mdi-content-copy{
+	font-size: 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 0 !important;
+    opacity: 0;
+}
+
+.sidebar-item.coupon-code a:hover > i{
+	color:  #a6b7bf !important;
+	text-decoration: none;
+}
+
+.sidebar-item.coupon-code a:hover > i{
+	opacity: 1;
+}
+
+.sidebar-item.coupon-code a i.copy-text{
+	font-size: 10px;
+    right: 13px;
+    position: absolute;
+    display: none;
+    bottom: 0;
+}
+
+.navbar-header .navbar-brand img{
+    width: 90%;
+    position: relative;
+    top: -20px;
+    left: 25px;
+}
+
+.credits-input {
+    color: #676767;
+    font-size: 15px;
+    font-weight: 300;
+    font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+    height: 36px;
+    border: 1px solid #d9d9d9;
+
+    border-radius: 4px;
+    box-shadow: none;
+
+    background-color: #FDFDFD;
+
+    box-sizing: border-box;
+    padding: 0;
+
+    -webkit-transition: border-color .15s linear,box-shadow .15s linear;
+    -moz-transition: border-color .15s linear,box-shadow .15s linear;
+    -ms-transition: border-color .15s linear,box-shadow .15s linear;
+    -o-transition: border-color .15s linear,box-shadow .15s linear;
+    transition: border-color .15s linear,box-shadow .15s linear;
+    width: 100%;
+    padding-left: 10px;
+}

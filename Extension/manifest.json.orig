@@ -1,0 +1,60 @@
+{
+<<<<<<< HEAD
+   "background": {
+      "scripts": ["js/background.js"]
+   },
+   "browser_action": {
+=======
+   "name": "1ClickDispute",
+   "version": "1.0.0",
+   "description": "This tool helps with reducing manual labor and mail tasks",
+   "icons": {
+      "128": "icons/icon_128.png",
+      "48": "icons/icon_48.png"
+   },
+   "manifest_version": 3,
+   "action": {
+>>>>>>> 45dc6c79a08f2af34e1af0db22782abf9deddf7f
+      "default_popup": "popup/popup.html",
+      "default_title": "1ClickDispute"
+   },
+   "content_scripts": [
+      {
+         "run_at": "document_start",
+         "all_frames": true,
+<<<<<<< HEAD
+         "js": [ "js/jquery.min.js", "js/script.js", "js/c2m.js","js/jquery-ui.min.js","js/jquery.iframe-transport.js","js/jquery.fileupload.js","js/lob.js","js/auto-selector.js"],
+=======
+         "js": [
+            "js/jquery.min.js",
+            "js/jquery-ui.min.js",
+            "js/jquery.iframe-transport.js",
+            "js/jquery.fileupload.js",
+            "js/auto-selector.js",
+            "js/dispute-aid.js",
+            "js/print.js"
+         ],
+>>>>>>> 45dc6c79a08f2af34e1af0db22782abf9deddf7f
+         "matches": [ "*://app.creditrepaircloud.com/*" ]
+      }
+   ],
+   "background": {
+      "service_worker": "background.js"
+   },
+<<<<<<< HEAD
+   "manifest_version": 2,
+   "name": "DisputeAid",
+   "permissions": [ "activeTab", "storage", "tabs", "webRequest", "webRequestBlocking", "*://app.creditrepaircloud.com/*" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.0"
+=======
+   "permissions": [
+      "activeTab",
+      "storage",
+      "tabs"
+   ],
+   "host_permissions": [
+       "*://app.creditrepaircloud.com/*"
+   ]
+>>>>>>> 45dc6c79a08f2af34e1af0db22782abf9deddf7f
+}

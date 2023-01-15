@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>1ClickDispute</title>
+    <!-- Custom CSS -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        input, textarea {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body ng-app="dispute-aid-app">
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full" ng-controller="PurchaseController">
+
+        <!-- SideBar and TopBar will be inserted -->
+
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2>Purchase History</h2>
+                                <hr>
+                                <div id="accordion">
+                                  <div class="card" ng-repeat="(k, v) in purchaseHistory track by $index">
+                                    <div class="card-header" id="heading-{{$index}}">
+                                      <h5 class="mb-0">
+                                        <span ng-if="v.stripeResponse">
+                                            <button class="btn" data-toggle="collapse" data-target="#collapse-{{$index}}" aria-expanded="false" aria-controls="collapse-{{$index}}">
+                                                <b class="text-muted">
+                                                    <span ng-bind="extractData(v.stripeResponse).currency.toUpperCase()" class="font-weight-bold"></span>
+                                                    <span ng-bind="extractData(v.stripeResponse).amount/100 + '.00'" class="font-weight-bold"></span> - 
+                                                    <span ng-bind="v.creditsAmount"></span> <span>Credits</span> | 
+                                                    <i ng-bind="v.purchaseDate" class="text-muted font-weight-light"></i>   
+                                                </b>                                                                                     
+                                            </button>
+                                            <a href="{{ v.receiptUrl}}" target="_blank" class="btn btn-link float-right">Receipt Link</a>
+                                        </span>
+
+                                        <span ng-if="!v.stripeResponse">
+                                            <button class="btn" data-toggle="collapse" data-target="#collapse-{{$index}}" aria-expanded="false" aria-controls="collapse-{{$index}}">
+                                                <b class="text-muted">
+                                                     <span ng-bind="v.message"></span> | <i ng-bind="v.purchaseDate" class="text-muted font-weight-light"></i>
+                                                </b>                                                                                     
+                                            </button>
+                                        </span>
+                                      </h5>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="logUpdate" tabindex="-1" role="dialog" style="z-index: 5000">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3 class="modal-title log-status">Please Wait...</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/angular.min.js"></script>s
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="js/waves.js"></script>
+    <script src="js/sidebarmenu.js"></script>
+
+    <!--Custom JavaScript -->
+    <script src="js/custom.js"></script>
+    <script src="../popup/js/LS.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/app_modules/Auth.js"></script>
+    <script src="../js/app_modules/User.js"></script>
+    <script src="../js/app_modules/Purchase.js"></script>
+    <script src="../js/app_modules/Credit.js"></script>
+
+
+</body>
+</html>

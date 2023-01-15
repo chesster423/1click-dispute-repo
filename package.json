@@ -1,0 +1,28 @@
+{
+  "name": "angular-ui-sortable",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ssechtre@bitbucket.org/cpidevs/1clickdispute.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/cpidevs/1clickdispute/issues"
+  },
+  "homepage": "https://bitbucket.org/cpidevs/1clickdispute#readme",
+  "dependencies": {
+    "angular-ui-sortable": "^0.19.0",
+    "ngx-sortable": "^1.0.3",
+    "sortablejs": "^1.14.0"
+  }
+}

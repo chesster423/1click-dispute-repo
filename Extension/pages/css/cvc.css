@@ -1,0 +1,17 @@
+.card-js .cvc-container {
+  width: 50%;
+  float: right;
+}
+
+.card-js .cvc-wrapper {
+  box-sizing: border-box;
+  margin-left: 5px;
+}
+.card-js .cvc-wrapper .cvc {
+  display: block;
+  width: 100%;
+}
+
+.card-js .cvc-wrapper .icon{
+  top: 4px;
+}

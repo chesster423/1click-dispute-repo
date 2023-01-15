@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-page="edit_profile" class="translate-text">1ClickDispute | Edit Profile</title>
+    <!-- Custom CSS -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body ng-app="dispute-aid-app">
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full" ng-controller="UserController">
+
+        <!-- SideBar and TopBar will be inserted -->
+
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="translate-text" data-page="edit_profile">Edit Profile</h2>
+
+                      
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter name" ng-model="user.name">                                     
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email address</label>
+                                    <input type="text" 
+                                    class="form-control" 
+                                    placeholder="Enter email" 
+                                    disabled="true" 
+                                    ng-model="user.email">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" ng-click="updateUser()">Submit</button>
+                           
+                                <hr>
+                     
+                                <div class="form-group">
+                                    <label for="oldPassword">Current Password</label>
+                                    <input type="password" class="form-control" id="oldPassword" ng-model="edit.current_password" placeholder="Enter current password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" class="form-control" id="newPassword" ng-model="edit.new_password" placeholder="Enter new password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm Password</label>
+                                    <input type="password" class="form-control" id="confirmPassword" ng-model="edit.confirm_password" placeholder="Enter confirm password">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" ng-click="updateUser(true)">Submit</button>
+                        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/angular.min.js"></script>s
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="js/waves.js"></script>
+    <script src="js/sidebarmenu.js"></script>
+    <script src="js/sweetalert2.min.js"></script>
+
+    <!--Custom JavaScript -->
+    <script src="js/custom.js"></script>
+    <script src="../popup/js/LS.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/app_modules/Auth.js"></script>
+    <script src="../js/app_modules/User.js"></script>
+    <script src="../js/app_modules/Purchase.js"></script>
+    <script src="../js/app_modules/Credit.js"></script>
+
+</body>
+</html>
